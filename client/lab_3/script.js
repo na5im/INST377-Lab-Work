@@ -23,7 +23,7 @@ function updateSlidePosition() {
     slide.classList.remove('visible');
     slide.classList.add('hidden');
   });
-  console.log(slidePosition);
+  // console.log(slidePosition);
   slides[slidePosition].classList.add('visible');
 }
 
@@ -35,6 +35,7 @@ function moveToNextSlide() {
   }
   updateSlidePosition(); // this is how you call a function within a function
 }
+
 function moveToPrevSlide() {
   if (slidePosition === 0) {
     slidePosition = 3;
