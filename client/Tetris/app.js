@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.grid');
-  const squares = Array.from(document.querySelectorAll('.grid div'));
-  const scoreDisplay = document.querySelector('#score');
-  const startBtn = document.querySelector('#start-button');
-  const width = 10;
+    const grid = document.querySelector('.grid');
+    let squares = Array.from(document.querySelectorAll('.grid div'));
+    const scoreDisplay = document.querySelector('#score');
+    const startButtton = document.querySelector('#start-button');
+    const width = 10;
 
   // The Tetrominoes
   const lTetromino = [
@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentPosition = 4;
   let currentRotation = 0;
-  
+
   // randomly select a Tetromino and its first rotation
   let random = Math.floor(Math.random() * theTetrominoes.length);
-  const current = theTetrominoes[random][0];
+  let current = theTetrominoes[random][0];
 
   // draw the Tetromino
   function draw() {
@@ -57,9 +57,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // undraw the Tetromino
   function undraw() {
     current.forEach(index => {
-        squares[currentPosition + index].classList.remove('tetromino');
+      squares[currentPosition + index].classList.remove('tetromino');
     });
   }
-});
+
+  // make the tetromino move down every second
+  function moveDown() {
+    undraw();
+    currentPosition += width;
+    draw();
+    freeze()
+  }
+  
+  // make tetromino move down every second
+  timerID = setInterval(moveDown, 1000);
+
+  function freeze(){
+  if (current.some(index => squares[currentPosition + index + width].classList('taken'))) {
+    current.forEach(index => squares[currentPosition + index].classList.add('taken'));
+    // start a new tetromino falling
+    random = math.floor(Math.random() * theTetrominoes.length);
+    current = theTetrominoes[random][currentRotation];
+    currentPosition = 4;
+    draw();
+  };
+
+  // move tetromino left, unless its at edge or theres a blockage
+  function moveLeft() {
+    undraw()
+    const isAtLeftEdge = current.some(index => (currentPositione + index) % width === 0)
+
+    if(!isAtLeftEdge) currentPosition -= 1
+    if(current.some(index=> squares[currentPosition + index].classList.contains('taken'))) {
+        currentPosition += 1
+    draw()
+    }
+  }
+  });
