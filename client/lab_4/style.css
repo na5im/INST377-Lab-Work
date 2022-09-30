@@ -30,7 +30,7 @@ body {
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  background-color: rgba(255, 205, 178,.2);
+  background-color: rgba(241, 250, 238,1);
 }
 
 
@@ -74,9 +74,9 @@ form {
 }
 
 .header {
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
   padding-bottom: 1.5rem;
 }
 
@@ -92,10 +92,11 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: rgb(130, 212, 187);
+  background-color: rgb(237, 110, 120);
   color: #342d2d;
 
   /* shapes */
+  border: 2px dashed darkblue;
   border-radius: 6px;
   font-size: 1.5rem;
   padding: 1.25rem;
@@ -128,14 +129,14 @@ form {
 }
 
 .left_section {
-  background-color: rgba(11, 124, 189, 0.8);
+  background-color: rgba(168, 218, 220, 0.8);
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
 }
 
 .right_section {
-  background-color: rgba(74, 103, 219, 0.7);
+  background-color: rgba(69, 123, 157, 0.9);
   flex: 1 2 auto;
   margin: 1rem;
   align-items: center;
@@ -154,7 +155,7 @@ form {
 .footer {
   flex-shrink: 0;
   padding: 1rem;
-  background-color: rgba(117, 55, 66, 0.8);
+  background-color: rgba(153, 134, 80, 0.8);
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -306,14 +307,33 @@ form label {
     /* Rules in here will only apply when a screen is the correct size */
     /* check it out by using your developer tools to shrink your screen-size */
     .container {
-      background-color: rgb(102, 175, 193);
+      background-color: rgba(151, 218, 129, 0.5);
+      border: 2px dashed darkblue;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      margin: unset;
+      border-top: unset
     }
-    .right_section {
+
+    .right_section, .left_section {
+      min-width: -webkit-fill-available;
       align-items: flex-start;
       justify-content: flex-start;
       max-height: 350px;
+      border-width: medium;
+    }
+
+    .left_section .box, .right_section .box {
+      width: -webkit-fill-available;
+    }
+    .footer, .header {
+      border-width: medium;
+    }
+
+    .header {
+      background-color: rgba(151, 218, 129, 0.5);
+      border: 2px dashed darkblue;
+      border-bottom: unset;
     }
 }
