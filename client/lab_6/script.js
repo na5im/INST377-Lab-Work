@@ -10,10 +10,29 @@
     Under this comment place any utility functions you need - like an inclusive random number selector
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 */
+let usedIndexes = [];
+const notDuplicate = true;
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+  while (true) {
+    rando = Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    console.log(rando);
+    if (!usedIndexes.includes(rando)) {
+      usedIndexes.push(rando);
+      return rando;
+      break;
+    }
+  }
+  // const duplicateIndexes = new Set(usedIndexes);
+  // usedIndexes.forEach((n, i) => {
+  //   while (duplicateIndexes.has(n)) {
+  //     usedIndexes[i] = n = getRandomIntInclusive(min, max);
+  //   }
+  //   console.log(`LALALA: ${n}`)
+  //   return n;
+  // });
 }
 
 function injectHTML(list) {
@@ -48,22 +67,13 @@ function injectHTML(list) {
 function processRestaurants(list) {
   console.log('fired restaurants list');
   const range = [...Array(15).keys()]; // Creates an arrray of 15 elements
-  const usedIndexes = [];
+
   const newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length);
-    if (!usedIndexes.includes(index)) {
-      usedIndexes.push(index);
-      return list[index];
-    }
-  //   const nonDuplicates = new Set(usedIndexes)
-  //   usedIndexes.forEach((n,i) =>{
-  //     while(nonDuplicates.has(n)) {
-  //       usedIndexes[i] = n = getRandomIntInclusive(0, list.length);
-  //   } 
-  //   nonDuplicates.add(n);
-  // });
-  //   }
+    return list[index];
   });
+  console.log(usedIndexes);
+  usedIndexes = [];
   return newArray;
   /*
     ## Process Data Separately From Injecting It
