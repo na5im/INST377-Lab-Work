@@ -48,9 +48,21 @@ function injectHTML(list) {
 function processRestaurants(list) {
   console.log('fired restaurants list');
   const range = [...Array(15).keys()]; // Creates an arrray of 15 elements
+  const usedIndexes = [];
   const newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length);
-    return list[index];
+    if (!usedIndexes.includes(index)) {
+      usedIndexes.push(index);
+      return list[index];
+    }
+  //   const nonDuplicates = new Set(usedIndexes)
+  //   usedIndexes.forEach((n,i) =>{
+  //     while(nonDuplicates.has(n)) {
+  //       usedIndexes[i] = n = getRandomIntInclusive(0, list.length);
+  //   } 
+  //   nonDuplicates.add(n);
+  // });
+  //   }
   });
   return newArray;
   /*
