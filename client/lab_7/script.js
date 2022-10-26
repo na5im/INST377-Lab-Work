@@ -87,6 +87,7 @@ function processRestaurants(list) {
 
 function filterList(list, filterInputValue) {
   return list.filter((item) => {
+    if (!item.name) { return; }
     const lowerCaseName = item.name.toLowerCase();
     const lowerCaseQuery = filterInputValue.toLowerCase();
     return lowerCaseName.includes(lowerCaseQuery);
@@ -142,7 +143,7 @@ async function mainEvent() {
 
     form.addEventListener('input', (event) => {
       console.log(event.target.value);
-      const filteredList = filterList(currentList.data, event.target.value);
+      const filteredList = filterList(currentList, event.target.value);
       injectHTML(filteredList);
     });
 
