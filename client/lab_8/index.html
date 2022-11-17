@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nasim's Lab</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>Nasim's Labs For INST377</h1>
+        </header>
+
+        <div class="container">
+            <div class="left_section box">
+                <h3>Form Inputs</h3>
+                <div class="box">
+                    <form action="/api" class="main_form">
+                        <label for="resto">Filtered Restaurant List</label>
+                        <input type="text" name="resto" id="resto">
+                    <div>
+                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        <button type="submit" id="get-resto">Change Restaurants</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="right_section box">
+                <h3>Local Restaurants</h3>
+                <div class="box" id="restaurant_list">
+                    A list of restaurants from an API
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            My Github account name is <em>na5im</em> and
+            <a href="https://github.com/na5im/INST377-Lab-Work" target="_blank">
+               here is a link to my repository</a>.
+         </footer>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
