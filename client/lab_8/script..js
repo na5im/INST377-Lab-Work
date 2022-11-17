@@ -13,10 +13,10 @@
 let usedIndexes = [];
 
 function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+  const newMin = Math.ceil(min);
+  const newMax = Math.floor(max);
   while (true) {
-    rando = Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    rando = Math.floor(Math.random() * (newMax - newMin + 1) + newMin); // The maximum is inclusive and the minimum is inclusive
     console.log(rando);
     if (!usedIndexes.includes(rando)) {
       usedIndexes.push(rando);
