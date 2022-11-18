@@ -111,7 +111,6 @@ function markerPlace(array, map) {
   });
   array.forEach((item) => {
     const {coordinates} = item.geocoded_column_1;
-    console.log(item.geocoded_column_1,item.establishment_id);
     L.marker([coordinates[1], coordinates[0]]).addTo(map);
   });
 }
